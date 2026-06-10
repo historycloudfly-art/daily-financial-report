@@ -53,7 +53,7 @@ def fetch_rss(url: str, timeout: int = 15) -> list[dict]:
     try:
         feed = feedparser.parse(url)
         entries = []
-        for entry in feed.entries[:10]:  # 每个源取前10条
+        for entry in feed.entries[:20]:  # 每个源取前20条
             entries.append({
                 "title": entry.get("title", ""),
                 "summary": entry.get("summary", entry.get("description", ""))[:300],
