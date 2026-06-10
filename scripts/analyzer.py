@@ -15,20 +15,23 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
     """构建发送给 AI 的提示词"""
 
     # 将新闻数据压缩成文本
+    # 限制每类新闻数量，避免输出超长
+    MAX_ITEMS = 8
+
     china_text = ""
-    for item in news_data.get("sections", {}).get("china_finance", []):
+    for item in news_data.get("sections", {}).get("china_finance", [])[:MAX_ITEMS]:
         china_text += f"- [{item['source']}] {item['title']}\n"
 
     global_text = ""
-    for item in news_data.get("sections", {}).get("global_finance", []):
+    for item in news_data.get("sections", {}).get("global_finance", [])[:MAX_ITEMS]:
         global_text += f"- [{item['source']}] {item['title']}\n"
 
     tech_text = ""
-    for item in news_data.get("sections", {}).get("tech", []):
+    for item in news_data.get("sections", {}).get("tech", [])[:MAX_ITEMS]:
         tech_text += f"- [{item['source']}] {item['title']}\n"
 
     social_text = ""
-    for item in news_data.get("sections", {}).get("social_media", []):
+    for item in news_data.get("sections", {}).get("social_media", [])[:MAX_ITEMS]:
         social_text += f"- [{item['source']}] {item['title']}\n"
 
     mode_instruction = ""
@@ -182,6 +185,7 @@ def analyze(news_data: dict, api_key: str, mode: str = "brief") -> dict:
                 {"role": "system", "content": "你是一位专业的财经分析师，擅长产业链分析和宏观经济解读。请用中文输出严格的 JSON 格式。"},
                 {"role": "user", "content": prompt},
             ],
+            response_format={"type": "json_object"},
             temperature=0.3,
             max_tokens=8192,
         )

@@ -11,6 +11,10 @@ from datetime import datetime
 
 def build_html(report_data: dict, mode: str = "brief") -> str:
     """构建单页 HTML"""
+    # 如果 report_data 是嵌套结构 {brief: ..., deep: ...}，提取对应模式
+    if "brief" in report_data and "deep" in report_data:
+        report_data = report_data.get(mode, report_data)
+
     date_str = report_data.get("date", datetime.now().strftime("%Y-%m-%d"))
     sections = report_data.get("sections", {})
 
