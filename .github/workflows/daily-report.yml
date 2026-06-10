@@ -7,6 +7,10 @@ on:
   # 也可以手动触发
   workflow_dispatch:
 
+# 赋予推送代码的权限
+permissions:
+  contents: write
+
 jobs:
   build-report:
     name: 采集·分析·构建

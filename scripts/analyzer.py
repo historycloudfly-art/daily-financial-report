@@ -122,17 +122,33 @@ def analyze(news_data: dict, api_key: str, mode: str = "brief") -> dict:
     prompt = build_prompt(news_data, mode)
 
     print(f"[DeepSeek] 正在分析新闻（{mode}模式）...")
-    response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=[
-            {"role": "system", "content": "你是一位专业的财经分析师，擅长产业链分析和宏观经济解读。请用中文输出严格的 JSON 格式。"},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0.3,
-        max_tokens=4096,
-    )
-
-    content = response.choices[0].message.content.strip()
+    try:
+        response = client.chat.completions.create(
+            model="deepseek-chat",
+            messages=[
+                {"role": "system", "content": "你是一位专业的财经分析师，擅长产业链分析和宏观经济解读。请用中文输出严格的 JSON 格式。"},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.3,
+            max_tokens=4096,
+        )
+        content = response.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"⚠️ DeepSeek API 调用失败: {e}")
+        # 返回降级结果
+        return {
+            "date": news_data.get("date", ""),
+            "mode": mode,
+            "error": f"DeepSeek API 调用失败: {str(e)[:100]}",
+            "sections": {
+                "macro": {"title": "🌏 宏观风向", "summary": "今日分析暂不可用，API调用异常", "items": []},
+                "industry_chain": {"title": "🏭 产业链透视", "summary": "暂不可用", "analysis": "", "items": []},
+                "research": {"title": "📊 机构研报摘要", "summary": "暂不可用", "items": []},
+                "tech": {"title": "💡 前沿科技", "summary": "暂不可用", "items": []},
+                "opinion": {"title": "🗣 自媒体声音", "summary": "暂不可用", "items": []},
+                "links": {"title": "🔗 原文速览", "items": []},
+            }
+        }
 
     # 清理可能的 markdown 代码块标记
     content = re.sub(r'^```(?:json)?\s*', '', content)
