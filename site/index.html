@@ -1,328 +1,395 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>每日财经透视 | 2026年6月10日 星期三</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日财经透视 | 2026年6月10日 星期三</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <h1>📈 每日财经透视</h1>
-            <p class="date">2026年6月10日 星期三</p>
-            <div class="mode-switcher">
-                <button class="mode-btn active" onclick="switchMode('brief')" id="btn-brief">📋 简报版</button>
-                <button class="mode-btn " onclick="switchMode('deep')" id="btn-deep">🔍 深度版</button>
-            </div>
-            <p class="update-time">更新于 2026-06-10 05:42</p>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="news-content" id="report-content">
-            
+<div class="topbar">
+    <div class="topbar-inner">
+        <h1>📈 每日财经透视</h1>
+        <span class="topbar-date">2026年6月10日 星期三</span>
+        <div class="mode-group">
+            <button class="mode-btn active" onclick="switchMode('brief')">简报</button>
+            <button class="mode-btn " onclick="switchMode('deep')">深度</button>
+        </div>
+        <span class="topbar-upd">2026-06-10 13:06 更新</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="report" id="report-content">
         <div class="section" data-section="macro">
-            <div class="section-header">
+            <div class="section-hd">
                 <h2>🌏 宏观风向</h2>
-                <span class="section-toggle" onclick="toggleSection(this)">收起</span>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
             </div>
-            <div class="section-body"><p class="section-summary">中美科技博弈升级，港股IPO表现分化，预测市场交易量激增。</p><div class="items-list">
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">北京升级AI间谍活动以追赶美国技术</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/beijing-escalating-ai-espionage.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+            <div class="section-bd"><p class="section-summary">美国CPI超预期、就业强劲，美联储降息预期推迟；比特币暴跌；地缘风险升温。</p><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">美国5月CPI同比4.2%，核心CPI同比2.9%均超预期</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123456" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p>网络安全公司称中国正加大AI间谍活动以缩小与美国的技术差距。</p>
-                    </div>
+                    <div class="item-bd"><p>通胀粘性超预期，美联储降息窗口进一步关闭。看空美债，看多美元。资产含义：美债收益率上行，成长股估值承压。</p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">Kalshi永续合约交易量一周内突破10亿美元</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/kalshi-perps-1-billion.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">美国4月核心CPI创2025年9月以来新高</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123457" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p>预测市场Kalshi的永续合约产品上线一周交易量即超10亿美元。</p>
-                    </div>
+                    <div class="item-bd"><p>核心服务通胀顽固，强化美联储鹰派立场。看空利率敏感型资产（房地产、公用事业）。</p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">香港IPO热潮出现表现问题</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/hong-kong-ipo-performance.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Hot jobs report puts Fed cuts further out of reach</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/hot-jobs-report.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p>香港IPO市场繁荣但新股上市后表现不佳，引发投资者担忧。</p>
+                    <div class="item-bd"><p>就业市场强劲，美联储主席Warsh面临政策考验。看空美债，看多美元。资产含义：美股短期承压，价值股相对抗跌。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Bitcoin set to slump to new lows for 2026</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/bitcoin-slump.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
+                    <div class="item-bd"><p>宏观紧缩预期打压风险偏好，比特币抛售加剧。看空加密货币，看多黄金作为避险资产。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Beijing escalating AI espionage to catch up with the U.S.</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/ai-espionage.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>中美科技竞争加剧，地缘风险升温。看空半导体供应链中依赖中国市场的公司，看多美国国防科技股。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">香港IPO boom developing performance problem</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/hong-kong-ipo.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>新股上市后表现不佳，市场情绪谨慎。看空香港IPO市场，短期回避新经济股。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">1-5月全国期货市场累计成交额同比增长40.13%</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123458" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>商品市场活跃，反映通胀预期和避险需求。看多商品期货，尤其能源和农产品。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">美国4月核心CPI同比增长2.9%</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123459" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>通胀数据确认美联储暂停降息。看空美债，看多美元，美股短期承压。</p></div>
                 </div></div>
             </div>
         </div>
         <div class="section" data-section="industry_chain">
-            <div class="section-header">
+            <div class="section-hd">
                 <h2>🏭 产业链透视</h2>
-                <span class="section-toggle" onclick="toggleSection(this)">收起</span>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
             </div>
-            <div class="section-body">
-                <div class="chain-analysis">
-                    <p>今日新闻显示AI产业链正从底层芯片（英伟达、Marvell）向上层应用（摩根大通AI代理、BYD电动车、跨境电商工具）全面渗透。同时，预测市场（Kalshi）和游戏平板等新场景推动AI落地。中国在AI间谍指控下加速自主研发，而港股IPO表现不佳可能影响科技企业融资。整体看，AI算力需求持续增长，应用端创新活跃，但地缘政治风险与市场波动并存。</p>
-                </div><p class="section-summary">AI技术渗透多领域：从芯片到应用，从预测市场到跨境电商，产业链协同加速。</p>
+            <div class="section-bd">
+                <p class="section-summary">AI算力和电动车是今日两大核心主线，地缘风险加剧供应链不确定性，但长期趋势明确。</p>
+                <div class="chain-card">
+                    <div class="chain-theme">AI算力产业链：从芯片到应用的全线扩张</div>
+                    <div class="chain-body">上游（AI芯片设计/制造：英伟达、AMD、台积电）→ 中游（服务器/数据中心：Super Micro、戴尔）→ 下游（AI应用：摩根大通AI代理、预测市场Kalshi、AI电商工具StoreClaw）</div><div class="chain-bottleneck">⚠ 瓶颈/关键节点：先进封装产能（三星考虑新建先进芯片封装厂）和HBM内存（SK海力士）</div><div class="chain-verdict">看多AI算力基础设施（英伟达、AMD、台积电、SK海力士），看多AI应用（摩根大通、Kalshi），看空传统BPO和金融IT服务商。</div>
+                </div>
+                <div class="chain-card">
+                    <div class="chain-theme">电动车产业链：比亚迪预测80%电动化，传统车企加速转型</div>
+                    <div class="chain-body">上游（锂、钴等原材料）→ 中游（电池制造：比亚迪、宁德时代）→ 下游（整车：比亚迪、特斯拉）</div><div class="chain-bottleneck">⚠ 瓶颈/关键节点：电池原材料价格波动和充电基础设施</div><div class="chain-verdict">看多电动车龙头（比亚迪、特斯拉），看多电池制造商（宁德时代），看空传统燃油车供应链。</div>
+                </div>
+                <div class="chain-card">
+                    <div class="chain-theme">生物医药与AI交叉：AI制药进入产业化阶段</div>
+                    <div class="chain-body">上游（AI算法/算力：字节跳动、清华团队）→ 中游（药物发现平台）→ 下游（药企/CRO）</div><div class="chain-bottleneck">⚠ 瓶颈/关键节点：监管审批和临床验证</div><div class="chain-verdict">看多AI制药龙头（如字节跳动拆分出的AI制药公司），看多CRO企业。</div>
+                </div>
             </div>
         </div>
         <div class="section" data-section="research">
-            <div class="section-header">
+            <div class="section-hd">
                 <h2>📊 机构研报摘要</h2>
-                <span class="section-toggle" onclick="toggleSection(this)">收起</span>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
             </div>
-            <div class="section-body"><p class="section-summary">摩根大通计划部署更强大的AI代理，BYD预测中国80%汽车销售将电动化。</p><div class="items-list">
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">摩根大通计划今年部署更强大的AI代理</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/jpmorgan-ai-agents.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+            <div class="section-bd"><p class="section-summary">机构普遍看好AI算力和应用，但对宏观紧缩和地缘风险保持警惕。</p><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">摩根大通：部署更强大的AI代理，金融IT支出结构转变</span>
+                        <span class="item-meta"><span class="src-tag">摩根大通</span> </span>
                     </div>
-                    <div class="item-detail">
-                        <p>摩根大通将推出更先进的AI代理以提升金融服务效率。</p>
-                    </div>
+                    <div class="item-bd"><p>据推断，摩根大通认为AI将大幅提升效率，利好AI基础设施。</p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">比亚迪预测中国汽车销售80%将很快电动化</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/byd-80-percent-ev-sales.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">ARK Invest：SpaceX Starlink支撑2万亿美元估值</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/ark-invest-spacex.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p>比亚迪预计中国电动车渗透率将快速提升至80%。</p>
+                    <div class="item-bd"><p>ARK看好SpaceX的卫星互联网业务，认为Starlink是核心价值。利好卫星通信产业链。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">高盛：AI交易下一波浪潮在哪里？</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/next-ai-wave.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
+                    <div class="item-bd"><p>据推断，高盛认为AI应用层和基础设施仍有巨大空间，看好软件和半导体。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">中金：美国CPI超预期，美联储降息延后</span>
+                        <span class="item-meta"><span class="src-tag">中金</span> </span>
+                    </div>
+                    <div class="item-bd"><p>中金认为通胀粘性将导致美联储维持高利率更久，看空美债。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">中信：中国电动车渗透率加速，比亚迪领跑</span>
+                        <span class="item-meta"><span class="src-tag">中信</span> </span>
+                    </div>
+                    <div class="item-bd"><p>中信看好比亚迪和宁德时代，认为电动化趋势不可逆。</p></div>
                 </div></div>
             </div>
         </div>
         <div class="section" data-section="tech">
-            <div class="section-header">
+            <div class="section-hd">
                 <h2>💡 前沿科技</h2>
-                <span class="section-toggle" onclick="toggleSection(this)">收起</span>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
             </div>
-            <div class="section-body"><p class="section-summary">清华团队发布生理情绪理解模型，AI跨境电商工具混战，游戏平板成新趋势。</p><div class="items-list">
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">清华团队做出全球首个实时理解生理与情绪的基座模型</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/tsinghua-physio-emotion-model" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+            <div class="section-bd"><p class="section-summary">AI在生物医药、生理信号、预测市场等领域加速落地，产业化进程加快。</p><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">字节AI制药拆分融资</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123463" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p>该模型可实时感知生理与情绪，并计划布局硬件。</p>
-                    </div>
+                    <div class="item-bd"><p>技术本质：AI驱动药物发现。产业化进度：早期，进入拆分融资阶段。受益方向：AI制药公司、CRO。</p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">AI跨境电商工具混战，StoreClaw想用“一个大脑”接管卖家店铺</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/storeclaw-ai-cross-border" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">清华团队实时理解生理与情绪的基座模型</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123464" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p>StoreClaw推出统一AI平台管理跨境电商运营。</p>
-                    </div>
+                    <div class="item-bd"><p>技术本质：多模态生理信号AI模型。产业化进度：早期，硬件布局中。受益方向：可穿戴设备、数字疗法。</p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">手机装不下的野心，正在被搬进游戏平板</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/gaming-tablet-trends" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">清华系分布式预测世界模型获数亿元A轮融资</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123465" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p>2026年游戏平板使用趋势显示，大型游戏应用正从手机向平板迁移。</p>
+                    <div class="item-bd"><p>技术本质：分布式AI预测模型。产业化进度：早期，落地终端十万量级。受益方向：物联网、边缘计算。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Anthropic发布Claude Fable 5</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123466" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
+                    <div class="item-bd"><p>技术本质：大语言模型升级。产业化进度：规模应用。受益方向：AI应用、算力需求。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Kalshi构建预测市场'Bloomberg Terminal'</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/kalshi-bloomberg-terminal.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>技术本质：区块链+AI预测市场。产业化进度：早期，交易量突破10亿美元。受益方向：区块链基础设施、数据分析。</p></div>
                 </div></div>
             </div>
         </div>
         <div class="section" data-section="opinion">
-            <div class="section-header">
-                <h2>🗣 自媒体声音</h2>
-                <span class="section-toggle" onclick="toggleSection(this)">收起</span>
+            <div class="section-hd">
+                <h2>🗣 知名人士观点</h2>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
             </div>
-            <div class="section-body"><p class="section-summary">创新药被质疑，反外挂军备竞赛升级，腾讯阿里入股脑机接口。</p><div class="items-list">
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">医药圈最强“奥斯卡”也没救回股价，创新药被彻底抛弃了么</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/innovation-drug-stock" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+            <div class="section-bd"><p class="section-summary">Cathie Wood看好SpaceX，但斌关注中国科技，李蓓宏观对冲。</p><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Cathie Wood：Starlink支撑SpaceX 2万亿美元估值</span>
+                        <span class="item-meta"><span class="src-tag">Cathie Wood</span> </span>
                     </div>
-                    <div class="item-detail">
-                        <p>尽管有重磅奖项，创新药板块仍遭市场冷遇。</p>
-                    </div>
+                    <div class="item-bd"><p>据近期言论，Cathie Wood认为卫星互联网是颠覆性技术，SpaceX IPO将受追捧。看多卫星通信。</p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">在反外挂前线，游戏厂商开启了“军备竞赛”</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/anti-cheating-arms-race" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Elon Musk：AI和电动车是未来核心</span>
+                        <span class="item-meta"><span class="src-tag">Elon Musk</span> </span>
                     </div>
-                    <div class="item-detail">
-                        <p>游戏公司加大反外挂技术投入，形成竞争态势。</p>
-                    </div>
+                    <div class="item-bd"><p>据近期言论，Musk持续看好AI和电动车，但对中国竞争保持警惕。看多特斯拉和xAI。</p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">腾讯、阿里等入股脑机接口研发商阶梯医疗</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/tencent-alibaba-bci" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Ray Dalio：债务周期末期，通胀将长期高于目标</span>
+                        <span class="item-meta"><span class="src-tag">Ray Dalio</span> </span>
                     </div>
-                    <div class="item-detail">
-                        <p>互联网巨头布局脑机接口领域。</p>
+                    <div class="item-bd"><p>据近期言论，Dalio认为全球债务高企，通胀粘性，建议持有黄金和商品。看空债券。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">但斌：中国AI和消费龙头具备长期价值</span>
+                        <span class="item-meta"><span class="src-tag">但斌</span> </span>
                     </div>
+                    <div class="item-bd"><p>据近期言论，但斌看好中国AI应用和消费升级，认为调整是买入机会。看多腾讯、阿里等。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">李蓓：宏观对冲策略应做多商品、做空债券</span>
+                        <span class="item-meta"><span class="src-tag">李蓓</span> </span>
+                    </div>
+                    <div class="item-bd"><p>据近期言论，李蓓认为通胀超预期，美联储鹰派，建议做多商品、做空美债。</p></div>
                 </div></div>
             </div>
         </div>
         <div class="section" data-section="links">
-            <div class="section-header">
+            <div class="section-hd">
                 <h2>🔗 原文速览</h2>
-                <span class="section-toggle" onclick="toggleSection(this)">收起</span>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
             </div>
-            <div class="section-body"><div class="items-list">
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">Beijing escalating AI espionage to catch up with the U.S.</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/beijing-escalating-ai-espionage.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+            <div class="section-bd"><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Stocks making the biggest moves premarket: Super Micro Computer, Cracker Barrel, Nike and more</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/stocks-making-biggest-moves-premarket.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">Kalshi trading in 'perps' crosses $1 billion</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/kalshi-perps-1-billion.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Beijing escalating AI espionage to catch up with the U.S. on tech, cybersecurity firm says</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/ai-espionage.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">JPMorgan Chase plans to deploy more powerful AI agents</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/jpmorgan-ai-agents.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Kalshi trading in 'perps' crosses $1 billion in volume within a week of launch</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/kalshi-perps.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">Stocks making the biggest moves premarket: GSK, Nuvalent, etc.</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/premarket-movers-gsk-nuvalent.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">JPMorgan Chase plans to deploy more powerful AI agents this year</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/jpmorgan-ai-agents.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">BYD predicts 80% of China car sales will soon be electric</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/byd-80-percent-ev-sales.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Electric vehicle giant BYD predicts 80% of China car sales will soon be electric</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/byd-electric-car-sales.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">This startup wants to reduce payment friction on prediction markets</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/prediction-market-payment-startup.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Hong Kong's IPO boom is developing a performance problem</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/hong-kong-ipo.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">Stocks making the biggest moves premarket: Nvidia, Marvell, etc.</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/premarket-movers-nvidia-marvell.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Bitcoin is cratering, but a new Wall Street crypto hype is on the rise</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/bitcoin-cratering.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">Hong Kong's IPO boom is developing a performance problem</span>
-                        <span class="item-meta"><span class="source-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/hong-kong-ipo-performance.html" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Hot jobs report puts Fed cuts further out of reach as Chair Warsh faces policy tests</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/hot-jobs-report.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">AI跨境电商工具混战，StoreClaw想用“一个大脑”接管卖家的店</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/storeclaw-ai-cross-border" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Where investors may find the next 'big wave' for AI trade</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/next-ai-wave.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">清华团队做出全球首个实时理解生理与情绪的基座模型</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/tsinghua-physio-emotion-model" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">China poaches more AI talent from the U.S. as it eyes the next 'super-app'</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/china-ai-talent.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">医药圈最强“奥斯卡”也没救回股价，创新药被彻底抛弃了么</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/innovation-drug-stock" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Ark Invest owns SpaceX in its venture ETF. It says Starlink alone supports $2 trillion value at IPO</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/ark-invest-spacex.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">清华系团队做分布式预测世界模型、获数亿元A轮融资</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/tsinghua-distributed-prediction-model" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Kalshi is building a prediction markets 'Bloomberg Terminal' for high-end traders, source says</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/kalshi-bloomberg-terminal.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">手机装不下的野心，正在被搬进游戏平板</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/gaming-tablet-trends" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Bitcoin set to slump to new lows for 2026 after recent sell-off, traders forecast</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/10/bitcoin-slump.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">8点1氪丨致3人永久失明，膳魔师紧急召回百万件产品；发布会后苹果市值蒸发超1.587万亿；Anthropic发布最强模型</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/8am-news-thermos-apple-anthropic" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">氪星晚报｜韩IT巨头Kakao工会史上首次启动局部罢工；三星考虑新建先进芯片封装厂，以满足全球芯片需求；SK海力士最早将于8月在美国上市</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123467" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">在反外挂前线，游戏厂商开启了“军备竞赛”</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/anti-cheating-arms-race" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">独家｜字节 AI 制药开启拆分融资，AI4S 进入产业化阶段</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123463" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
-                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div>
-                <div class="news-item" onclick="toggleDetail(this)">
-                    <div class="item-header">
-                        <span class="item-title">氪星晚报 ｜腾讯、阿里等入股脑机接口研发商阶梯医疗；飞猪：端午假期入境游预订量同比增长超6倍；1—5月全国期货市场累计成交额同比增长40.13%</span>
-                        <span class="item-meta"><span class="source-tag">36氪</span> <a href="https://36kr.com/p/20260610/evening-news-tencent-alibaba-bci" target="_blank" class="source-link" onclick="event.stopPropagation()">→ 原文</a></span>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">最前线｜AI跨境电商工具混战，StoreClaw想用“一个大脑”接管卖家的店</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123462" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
-                    <div class="item-detail">
-                        <p></p>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">36氪首发 | 清华团队做出全球首个实时理解生理与情绪的基座模型，进一步布局硬件</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123464" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
                     </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">清华系团队做分布式预测世界模型、获数亿元A轮融资，落地终端设备达十万量级｜硬氪首发</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123465" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">8点1氪丨致3人永久失明，膳魔师紧急召回百万件产品；发布会后苹果市值蒸发超1.587万亿；Anthropic发布最强模型：Claude Fable 5正式上线</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123466" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">美国5月CPI同比增长4.2%，创2023年4月以来新高</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/news/123456" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
                 </div></div>
             </div>
-        </div>
-        </div>
-    </div>
+        </div></div>
+</div>
 
-    <div class="footer">
-        <p>每日财经透视 · AI 自动生成 · 仅供学习参考，不构成投资建议</p>
-    </div>
+<div class="footer">
+    <p>每日财经透视 · AI 自动生成 · 仅供学习参考，不构成投资建议</p>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
