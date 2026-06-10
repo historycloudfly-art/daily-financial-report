@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>每日财经透视</title>
+    <title>每日财经透视 | 2026年6月10日 星期三</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,43 +12,16 @@
             <h1>📈 每日财经透视</h1>
             <p class="date">2026年6月10日 星期三</p>
             <div class="mode-switcher">
-                <button class="mode-btn active" id="btn-brief">📋 简报版</button>
-                <button class="mode-btn" id="btn-deep" onclick="location.href='deep.html'">🔍 深度版</button>
+                <button class="mode-btn active" onclick="switchMode('brief')" id="btn-brief">📋 简报版</button>
+                <button class="mode-btn " onclick="switchMode('deep')" id="btn-deep">🔍 深度版</button>
             </div>
-            <p class="update-time">数据采集中，请稍后...</p>
+            <p class="update-time">更新于 2026-06-10 05:10</p>
         </div>
     </div>
 
     <div class="container">
-        <div class="loading">
-            <div class="spinner"></div>
-            <p>⏳ 今日报告正在生成中...</p>
-            <p style="margin-top: 8px; font-size: 0.9rem; color: var(--text-muted);">
-                AI 正在分析全球财经新闻，请稍等片刻刷新页面
-            </p>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <h2>📋 使用说明</h2>
-            </div>
-            <div class="section-body">
-                <div class="news-item" style="cursor:default;">
-                    <div class="item-header">
-                        <span class="item-title">首次运行需要触发 GitHub Actions 工作流</span>
-                    </div>
-                </div>
-                <div class="news-item" style="cursor:default;">
-                    <div class="item-header">
-                        <span class="item-title">之后每天 7:30 自动更新</span>
-                    </div>
-                </div>
-                <div class="news-item" style="cursor:default;">
-                    <div class="item-header">
-                        <span class="item-title">点击条目查看详情，点击「→ 原文」跳转原文链接</span>
-                    </div>
-                </div>
-            </div>
+        <div class="news-content" id="report-content">
+            
         </div>
     </div>
 
