@@ -26,7 +26,7 @@ def build_html(report_data: dict, mode: str = "brief") -> str:
         display_date = date_str
 
     sections_html = ""
-    section_keys = ["macro", "industry_chain", "research", "tech", "opinion", "links"]
+    section_keys = ["macro", "markets", "industry_chain", "research", "tech", "opinion", "links"]
 
     for key in section_keys:
         section = sections.get(key, {})

@@ -18,19 +18,23 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 
     china_text = ""
     for item in news_data.get("sections", {}).get("china_finance", [])[:MAX_ITEMS]:
-        china_text += f"- [{item['source']}] {item['title']}\n"
+        link = item.get("link", "")
+        china_text += f"- [{item['source']}] {item['title']} | 链接: {link}\n"
 
     global_text = ""
     for item in news_data.get("sections", {}).get("global_finance", [])[:MAX_ITEMS]:
-        global_text += f"- [{item['source']}] {item['title']}\n"
+        link = item.get("link", "")
+        global_text += f"- [{item['source']}] {item['title']} | 链接: {link}\n"
 
     tech_text = ""
     for item in news_data.get("sections", {}).get("tech", [])[:MAX_ITEMS]:
-        tech_text += f"- [{item['source']}] {item['title']}\n"
+        link = item.get("link", "")
+        tech_text += f"- [{item['source']}] {item['title']} | 链接: {link}\n"
 
     social_text = ""
     for item in news_data.get("sections", {}).get("social_media", [])[:MAX_ITEMS]:
-        social_text += f"- [{item['source']}] {item['title']}\n"
+        link = item.get("link", "")
+        social_text += f"- [{item['source']}] {item['title']} | 链接: {link}\n"
 
     mode_instruction = ""
     if mode == "brief":
@@ -61,7 +65,7 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 示例差写法（禁止）：
 "摩根大通加速AI应用，提升效率，利好AI板块。"（太浅、无产业链视角、无观点）"""
 
-    prompt = f"""你是一位在华尔街和国内头部券商拥有20年经验的首席经济学家兼策略分析师。以下是今日采集的全球财经新闻原始素材。请以专业投资研究的标准，按以下6个板块整理成一份中文财经日报。
+    prompt = f"""你是一位在华尔街和国内头部券商拥有20年经验的首席经济学家兼策略分析师。以下是今日采集的全球财经新闻原始素材。请以专业投资研究的标准，按以下7个板块整理成一份中文财经日报。
 
 日期：{news_data.get('date', datetime.now().strftime('%Y-%m-%d'))}
 
@@ -77,6 +81,9 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 【社交媒体/知名投资人观点】
 {social_text}
 
+===== 链接使用硬性规则 =====
+每条素材后面都标注了"链接: xxx"，你的输出中所有 link 字段**必须使用这些真实链接**，不得自己编造。如果某条素材没有可用链接，link 字段设为空字符串 ""。
+
 ===== 分析质量硬性要求 =====
 
 {mode_instruction}
@@ -86,6 +93,14 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 【🌏 宏观风向】
 每条必须包含：核心逻辑 + 看多/看空/中性判断 + 资产含义
 内容覆盖：利率政策、经济数据、地缘风险、监管变化
+
+【📊 A股/港股/美股复盘】
+对今日三大市场的表现进行复盘，每条包含：
+- 市场名称 + 主要指数涨跌（可以用"上涨/下跌/震荡"表述，不必给出具体数字）
+- 当日核心驱动因素（政策/资金/情绪等）
+- 板块轮动情况
+- 短期展望
+至少3条（每个市场至少1条），最多15条
 
 【🏭 产业链透视 - 这是全文核心板块】
 写一篇 400-600 字的分析，要求：
@@ -117,7 +132,7 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 按来源分组的链接汇总
 
 ===== 输出格式 =====
-严格输出以下 JSON 格式，不要包含任何额外文字：
+严格输出以下 JSON 格式，不要包含任何额外文字。每个板块至少输出 10 条（产业链板块除外），最多不超 20 条：
 {{{{
   "date": "{news_data.get('date', '')}",
   "mode": "{mode}",
@@ -129,8 +144,20 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
         {{{{
           "title": "事件标题",
           "analysis": "核心逻辑 + 立场判断 + 资产含义",
-          "link": "原文链接",
+          "link": "必须使用素材中的真实链接",
           "source": "来源"
+        }}}}
+      ]
+    }}}},
+    "markets": {{{{
+      "title": "📊 A股/港股/美股复盘",
+      "summary": "三大市场核心判断",
+      "items": [
+        {{{{
+          "title": "市场名称 + 涨跌方向 + 核心驱动",
+          "analysis": "板块轮动 + 短期展望",
+          "link": "",
+          "source": "A股/港股/美股"
         }}}}
       ]
     }}}},
@@ -166,7 +193,7 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
         {{{{
           "title": "技术标题",
           "analysis": "技术本质 + 产业化进度 + 受益方向",
-          "link": "链接",
+          "link": "必须使用素材中的真实链接",
           "source": "来源"
         }}}}
       ]
@@ -202,6 +229,7 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 3. 每条内容携带明确的判断和立场
 4. 产业链板块必须有深度穿透分析，不是泛泛而谈
 5. 知名人士板块真实引用可验证的观点
+6. **所有 link 字段必须使用素材中提供的真实链接，严禁编造**
 """
 
     return prompt
@@ -228,6 +256,11 @@ def _fallback(news_data: dict, mode: str, msg: str = "") -> dict:
                 "title": "🌏 宏观风向",
                 "summary": "AI分析暂不可用，以下为原始新闻",
                 "items": [{"title": i["title"], "analysis": i["summary"], "link": i["link"], "source": i.get("source","")} for i in raw_items[:20]],
+            },
+            "markets": {
+                "title": "📊 A股/港股/美股复盘",
+                "summary": "暂不可用",
+                "items": [],
             },
             "industry_chain": {
                 "title": "🏭 产业链透视",
