@@ -115,17 +115,51 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 def analyze(news_data: dict, api_key: str, mode: str = "brief") -> dict:
     """调用 DeepSeek API 分析新闻"""
     def _fallback(msg: str = "") -> dict:
+        """AI 分析失败时的降级结果 — 直接将原始新闻标题展示出来"""
+        # 从 news_data 提取原始新闻标题作为 items
+        raw_items = []
+        for section_key, section_name in [
+            ("china_finance", ""), ("global_finance", ""), ("tech", ""), ("social_media", "")
+        ]:
+            for item in news_data.get("sections", {}).get(section_key, []):
+                raw_items.append({
+                    "title": item.get("title", ""),
+                    "summary": item.get("summary", "")[:200],
+                    "link": item.get("link", ""),
+                    "source": item.get("source", ""),
+                })
+
         return {
             "date": news_data.get("date", ""),
             "mode": mode,
-            "error": f"DeepSeek API 调用失败: {msg}",
+            "error": f"AI 分析暂不可用: {msg}",
             "sections": {
-                "macro": {"title": "🌏 宏观风向", "summary": "今日分析暂不可用", "items": []},
-                "industry_chain": {"title": "🏭 产业链透视", "summary": "暂不可用", "analysis": "", "items": []},
+                "macro": {
+                    "title": "🌏 宏观风向",
+                    "summary": "AI 分析暂不可用，以下为原始新闻标题",
+                    "items": [i for i in raw_items if "finance" in str(i.get("source","")).lower() or "第一财经" in i.get("source","") or "经济" in i.get("source","") or "CNBC" in i.get("source","") or "Bloomberg" in i.get("source","") or "Reuters" in i.get("source","") or "WSJ" in i.get("source","") or "FT" in i.get("source","")][:15],
+                },
+                "industry_chain": {
+                    "title": "🏭 产业链透视",
+                    "summary": "AI 分析暂不可用",
+                    "analysis": "今日 AI 产业链分析因 API 调用异常暂不可用。请稍后刷新重试。",
+                    "items": [],
+                },
                 "research": {"title": "📊 机构研报摘要", "summary": "暂不可用", "items": []},
-                "tech": {"title": "💡 前沿科技", "summary": "暂不可用", "items": []},
-                "opinion": {"title": "🗣 自媒体声音", "summary": "暂不可用", "items": []},
-                "links": {"title": "🔗 原文速览", "items": []},
+                "tech": {
+                    "title": "💡 前沿科技",
+                    "summary": "以下为原始科技新闻",
+                    "items": [i for i in raw_items if "tech" in str(i.get("source","")).lower() or "36氪" in i.get("source","") or "虎嗅" in i.get("source","") or "TechCrunch" in i.get("source","") or "Verge" in i.get("source","") or "Wired" in i.get("source","")][:10],
+                },
+                "opinion": {
+                    "title": "🗣 自媒体声音",
+                    "summary": "以下为原始自媒体内容",
+                    "items": [i for i in raw_items if "YouTube" in i.get("source","") or "抖音" in i.get("source","") or "social" in str(i.get("source","")).lower()][:10],
+                },
+                "links": {
+                    "title": "🔗 原文速览",
+                    "items": [{"title": i["title"], "link": i["link"], "source": i.get("source","")} for i in raw_items[:30] if i.get("link")],
+                },
             }
         }
 
@@ -149,7 +183,7 @@ def analyze(news_data: dict, api_key: str, mode: str = "brief") -> dict:
                 {"role": "user", "content": prompt},
             ],
             temperature=0.3,
-            max_tokens=4096,
+            max_tokens=8192,
         )
         content = response.choices[0].message.content.strip()
     except Exception as e:
@@ -168,20 +202,7 @@ def analyze(news_data: dict, api_key: str, mode: str = "brief") -> dict:
     except json.JSONDecodeError as e:
         print(f"⚠️  JSON 解析失败: {e}")
         print(f"原始响应前200字符: {content[:200]}")
-        # 返回降级结果
-        return {
-            "date": news_data.get("date", ""),
-            "mode": mode,
-            "error": "AI 分析失败",
-            "sections": {
-                "macro": {"title": "🌏 宏观风向", "summary": "今日分析暂不可用", "items": []},
-                "industry_chain": {"title": "🏭 产业链透视", "summary": "暂不可用", "analysis": "", "items": []},
-                "research": {"title": "📊 机构研报摘要", "summary": "暂不可用", "items": []},
-                "tech": {"title": "💡 前沿科技", "summary": "暂不可用", "items": []},
-                "opinion": {"title": "🗣 自媒体声音", "summary": "暂不可用", "items": []},
-                "links": {"title": "🔗 原文速览", "items": []},
-            }
-        }
+        return _fallback(f"JSON解析失败: {e}")
 
 
 def generate_brief_and_deep(news_data: dict, api_key: str) -> dict:
