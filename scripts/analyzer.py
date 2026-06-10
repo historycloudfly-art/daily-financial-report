@@ -14,7 +14,7 @@ from openai import OpenAI
 def build_prompt(news_data: dict, mode: str = "brief") -> str:
     """构建发送给 AI 的高质量分析提示词"""
 
-    MAX_ITEMS = 20
+    MAX_ITEMS = 10
 
     china_text = ""
     for item in news_data.get("sections", {}).get("china_finance", [])[:MAX_ITEMS]:
@@ -132,7 +132,7 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 按来源分组的链接汇总
 
 ===== 输出格式 =====
-严格输出以下 JSON 格式，不要包含任何额外文字。每个板块至少输出 10 条（产业链板块除外），最多不超 20 条：
+严格输出以下 JSON 格式，不要包含任何额外文字。每个板块至少输出 8 条（产业链板块除外），最多不超 12 条：
 {{{{
   "date": "{news_data.get('date', '')}",
   "mode": "{mode}",
@@ -224,7 +224,7 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 }}}}
 
 请确保：
-1. 每板块至少 10 条，最多不超 20 条
+1. 每板块至少 8 条，最多 12 条
 2. 以中文撰写，英文人名/术语保留原文
 3. 每条内容携带明确的判断和立场
 4. 产业链板块必须有深度穿透分析，不是泛泛而谈
@@ -255,7 +255,7 @@ def _fallback(news_data: dict, mode: str, msg: str = "") -> dict:
             "macro": {
                 "title": "🌏 宏观风向",
                 "summary": "AI分析暂不可用，以下为原始新闻",
-                "items": [{"title": i["title"], "analysis": i["summary"], "link": i["link"], "source": i.get("source","")} for i in raw_items[:20]],
+                "items": [{"title": i["title"], "analysis": i["summary"], "link": i["link"], "source": i.get("source","")} for i in raw_items[:12]],
             },
             "markets": {
                 "title": "📊 A股/港股/美股复盘",
@@ -271,7 +271,7 @@ def _fallback(news_data: dict, mode: str, msg: str = "") -> dict:
             "tech": {
                 "title": "💡 前沿科技",
                 "summary": "以下为原始新闻",
-                "items": [{"title": i["title"], "analysis": i["summary"], "link": i["link"], "source": i.get("source","")} for i in raw_items if any(k in str(i.get("source","")).lower() for k in ["36氪","虎嗅","tech","verge","wired","youtube"])][:20],
+                "items": [{"title": i["title"], "analysis": i["summary"], "link": i["link"], "source": i.get("source","")} for i in raw_items if any(k in str(i.get("source","")).lower() for k in ["36氪","虎嗅","tech","verge","wired","youtube"])][:12],
             },
             "opinion": {
                 "title": "🗣 知名人士观点",
@@ -280,7 +280,7 @@ def _fallback(news_data: dict, mode: str, msg: str = "") -> dict:
             },
             "links": {
                 "title": "🔗 原文速览",
-                "items": [{"title": i["title"], "link": i["link"], "source": i.get("source","")} for i in raw_items[:30] if i.get("link")],
+                "items": [{"title": i["title"], "link": i["link"], "source": i.get("source","")} for i in raw_items[:12] if i.get("link")],
             },
         }
     }
@@ -304,8 +304,7 @@ def analyze(news_data: dict, api_key: str, mode: str = "brief") -> dict:
                 {"role": "system", "content": "你是一位顶级首席经济学家兼策略分析师。你必须严格按照用户要求的格式输出 JSON，每条分析都传递有信息量的判断和立场，拒绝模棱两可。"},
                 {"role": "user", "content": prompt},
             ],
-            response_format={"type": "json_object"},
-            temperature=0.4,
+            temperature=0.3,
             max_tokens=8192,
         )
         content = response.choices[0].message.content.strip()
