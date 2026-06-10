@@ -7,9 +7,11 @@ on:
   # 也可以手动触发
   workflow_dispatch:
 
-# 赋予推送代码的权限
+# 赋予推送代码和部署的权限
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-report:
@@ -46,6 +48,15 @@ jobs:
         run: |
           git config user.name "每日财经透视机器人"
           git config user.email "bot@daily-financial-report"
-          git add site/index.html site/deep.html
+          git add site/
           git diff --cached --quiet || git commit -m "每日财经报告自动更新 $(date +'%Y-%m-%d')"
           git push
+
+      - name: 部署到 GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: success()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true

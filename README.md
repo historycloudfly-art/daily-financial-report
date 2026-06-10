@@ -18,9 +18,9 @@
 - **分析**：DeepSeek API
 - **展示**：纯静态 HTML (Tailwind CSS)
 - **调度**：GitHub Actions
-- **托管**：Vercel（免费版）
+- **托管**：GitHub Pages（免费）
 
-## 部署步骤（共 6 步）
+## 部署步骤
 
 ### 前置条件
 
@@ -46,44 +46,33 @@ git push -u origin main
 
 1. 打开你的 GitHub 仓库页面
 2. 点击 Settings → Secrets and variables → Actions
-3. 点击 "New repository secret"，添加以下 5 个：
+3. 点击 "New repository secret"，添加以下 2 个：
 
 | Secret 名称 | 值 |
 |------------|-----|
 | `DEEPSEEK_API_KEY` | 你的 DeepSeek API Key |
 | `NEWSAPI_KEY` | 你的 NewsAPI Key |
-| `VERCEL_TOKEN` | 稍后获取 |
-| `VERCEL_ORG_ID` | 稍后获取 |
-| `VERCEL_PROJECT_ID` | 稍后获取 |
 
-### 第3步：部署到 Vercel
+### 第3步：启用 GitHub Pages
 
-1. 打开 https://vercel.com 用 GitHub 登录
-2. 点击 "Add New" → "Project"
-3. 选择 `daily-financial-report` 仓库
-4. 在配置页面：
-   - Framework Preset: 选 `Other`
-   - Root Directory: 留空
-   - Build Command: 留空
-   - Output Directory: 留空
-5. 点击 "Deploy"
+1. 打开你的 GitHub 仓库 → **Settings** → **Pages**
+2. **Source** 选 **"Deploy from a branch"**
+3. **Branch** 选 **`gh-pages`** → 文件夹选 **`/ (root)`**
+4. 点击 **"Save"**
 
-### 第4步：获取 Vercel 信息填入 Secrets
+### 第4步：手动触发一次
 
-1. **Vercel Token**：https://vercel.com/account/tokens → 创建 Token → 复制
-2. **Project ID**：进入项目页面 → Settings → General → Project ID
-3. **Org ID**：进入项目页面 → Settings → General → 找到 Vercel ID
+1. 打开 GitHub 仓库 → **Actions** 标签
+2. 左侧点击 **"每日财经报告"**
+3. 右侧点击 **"Run workflow"** → 绿色按钮
+4. 等待几分钟，运行成功后 GitHub Pages 会自动更新
 
-把这三个值填回 GitHub Secrets（第2步）。
+### 第5步：访问你的财经早报 🎉
 
-### 第5步：手动触发一次
-
-1. 打开 GitHub 仓库 → Actions 标签
-2. 左侧点击 "每日财经报告"
-3. 右侧点击 "Run workflow" → 绿色按钮
-4. 等待几分钟，运行成功后访问你的 Vercel 网址
-
-### 第6步：享受每日自动更新 🎉
+部署完成后，访问：
+```
+https://historycloudfly-art.github.io/daily-financial-report/
+```
 
 以后每天 7:30，你的专属财经早报会自动更新。
 
