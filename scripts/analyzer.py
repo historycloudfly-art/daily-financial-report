@@ -6,7 +6,11 @@ AI 财经分析器 v2
 import json
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+
+BJT = timezone(timedelta(hours=8))
+def beijing_now():
+    return datetime.now(BJT)
 
 from openai import OpenAI
 
@@ -67,7 +71,7 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 
     prompt = f"""你是一位在华尔街和国内头部券商拥有20年经验的首席经济学家兼策略分析师。以下是今日采集的全球财经新闻原始素材。请以专业投资研究的标准，按以下7个板块整理成一份中文财经日报。
 
-日期：{news_data.get('date', datetime.now().strftime('%Y-%m-%d'))}
+日期：{news_data.get('date', beijing_now().strftime('%Y-%m-%d'))}
 
 【中国财经媒体头条】
 {china_text}

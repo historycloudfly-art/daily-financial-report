@@ -6,8 +6,15 @@
 import json
 import os
 import time
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import Optional
+
+# 北京时间（UTC+8）
+BJT = timezone(timedelta(hours=8))
+
+def beijing_now():
+    """返回北京时间当前时间"""
+    return datetime.now(BJT)
 
 import feedparser
 import requests
@@ -58,7 +65,7 @@ def fetch_rss(url: str, timeout: int = 15) -> list[dict]:
                 "title": entry.get("title", ""),
                 "summary": entry.get("summary", entry.get("description", ""))[:300],
                 "link": entry.get("link", ""),
-                "published": entry.get("published", datetime.now().isoformat()),
+                "published": entry.get("published", beijing_now().isoformat()),
             })
         return entries
     except Exception as e:
@@ -103,8 +110,8 @@ def fetch_newsapi(api_key: str) -> list[dict]:
 def collect_all(newsapi_key: Optional[str] = None) -> dict:
     """采集所有来源的新闻"""
     result = {
-        "date": datetime.now().strftime("%Y-%m-%d"),
-        "updated_at": datetime.now().isoformat(),
+        "date": beijing_now().strftime("%Y-%m-%d"),
+        "updated_at": beijing_now().isoformat(),
         "sections": {},
     }
 

@@ -6,7 +6,11 @@
 import json
 import os
 import glob
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+
+BJT = timezone(timedelta(hours=8))
+def beijing_now():
+    return datetime.now(BJT)
 
 
 def build_html(report_data: dict, mode: str = "brief") -> str:
@@ -14,7 +18,7 @@ def build_html(report_data: dict, mode: str = "brief") -> str:
     if "brief" in report_data and "deep" in report_data:
         report_data = report_data.get(mode, report_data)
 
-    date_str = report_data.get("date", datetime.now().strftime("%Y-%m-%d"))
+    date_str = report_data.get("date", beijing_now().strftime("%Y-%m-%d"))
     sections = report_data.get("sections", {})
 
     try:
@@ -126,7 +130,7 @@ def build_html(report_data: dict, mode: str = "brief") -> str:
             </div>
         </div>"""
 
-    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    now = beijing_now().strftime("%Y-%m-%d %H:%M")
     brief_btn = 'active' if mode == 'brief' else ''
     deep_btn = 'active' if mode == 'deep' else ''
 
@@ -170,7 +174,7 @@ def build_all(report_path: str, output_dir: str):
     with open(report_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
+    date_str = data.get("date", beijing_now().strftime("%Y-%m-%d"))
     os.makedirs(output_dir, exist_ok=True)
 
     brief_html = build_html(data, mode="brief")
