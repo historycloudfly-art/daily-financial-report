@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+*.egg-info/
+
+# 数据缓存
+data/*.json
+!data/.gitkeep
+
+# 系统
+.DS_Store
+Thumbs.db
