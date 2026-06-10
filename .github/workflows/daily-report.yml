@@ -38,10 +38,10 @@ jobs:
       - name: 构建网页
         run: python scripts/builder.py
 
-      - name: 部署到 Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
+      - name: 提交生成的网页到仓库
+        run: |
+          git config user.name "每日财经透视机器人"
+          git config user.email "bot@daily-financial-report"
+          git add site/index.html site/deep.html
+          git diff --cached --quiet || git commit -m "每日财经报告自动更新 $(date +'%Y-%m-%d')"
+          git push
