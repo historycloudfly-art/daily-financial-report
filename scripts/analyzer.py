@@ -114,10 +114,29 @@ def build_prompt(news_data: dict, mode: str = "brief") -> str:
 
 def analyze(news_data: dict, api_key: str, mode: str = "brief") -> dict:
     """调用 DeepSeek API 分析新闻"""
-    client = OpenAI(
-        api_key=api_key,
-        base_url="https://api.deepseek.com",
-    )
+    def _fallback(msg: str = "") -> dict:
+        return {
+            "date": news_data.get("date", ""),
+            "mode": mode,
+            "error": f"DeepSeek API 调用失败: {msg}",
+            "sections": {
+                "macro": {"title": "🌏 宏观风向", "summary": "今日分析暂不可用", "items": []},
+                "industry_chain": {"title": "🏭 产业链透视", "summary": "暂不可用", "analysis": "", "items": []},
+                "research": {"title": "📊 机构研报摘要", "summary": "暂不可用", "items": []},
+                "tech": {"title": "💡 前沿科技", "summary": "暂不可用", "items": []},
+                "opinion": {"title": "🗣 自媒体声音", "summary": "暂不可用", "items": []},
+                "links": {"title": "🔗 原文速览", "items": []},
+            }
+        }
+
+    try:
+        client = OpenAI(
+            api_key=api_key,
+            base_url="https://api.deepseek.com",
+        )
+    except Exception as e:
+        print(f"⚠️ OpenAI 客户端初始化失败: {e}")
+        return _fallback(str(e)[:100])
 
     prompt = build_prompt(news_data, mode)
 
@@ -135,20 +154,7 @@ def analyze(news_data: dict, api_key: str, mode: str = "brief") -> dict:
         content = response.choices[0].message.content.strip()
     except Exception as e:
         print(f"⚠️ DeepSeek API 调用失败: {e}")
-        # 返回降级结果
-        return {
-            "date": news_data.get("date", ""),
-            "mode": mode,
-            "error": f"DeepSeek API 调用失败: {str(e)[:100]}",
-            "sections": {
-                "macro": {"title": "🌏 宏观风向", "summary": "今日分析暂不可用，API调用异常", "items": []},
-                "industry_chain": {"title": "🏭 产业链透视", "summary": "暂不可用", "analysis": "", "items": []},
-                "research": {"title": "📊 机构研报摘要", "summary": "暂不可用", "items": []},
-                "tech": {"title": "💡 前沿科技", "summary": "暂不可用", "items": []},
-                "opinion": {"title": "🗣 自媒体声音", "summary": "暂不可用", "items": []},
-                "links": {"title": "🔗 原文速览", "items": []},
-            }
-        }
+        return _fallback(str(e)[:100])
 
     # 清理可能的 markdown 代码块标记
     content = re.sub(r'^```(?:json)?\s*', '', content)
