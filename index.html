@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日财经透视 | 2026年6月14日 星期日</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+    <div class="topbar-inner">
+        <h1>📈 每日财经透视</h1>
+        <span class="topbar-date">2026年6月14日 星期日</span>
+        <div class="mode-group">
+            <button class="mode-btn active" onclick="switchMode('brief')">简报</button>
+            <button class="mode-btn " onclick="switchMode('deep')">深度</button>
+        </div>
+        <span class="topbar-upd">2026-06-14 18:44 更新</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="report" id="report-content">
+        <div class="section" data-section="macro">
+            <div class="section-hd">
+                <h2>🌏 宏观风向</h2>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
+            </div>
+            <div class="section-bd"><p class="section-summary">SpaceX IPO引爆全球风险偏好，黄金遭抛售，AI生产力叙事主导市场。</p><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">SpaceX创纪录IPO，市值冲击2万亿美元</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/spacex-raises-75-billion-in-record-setting-ipo-ahead-of-nasdaq-debut.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>SpaceX以750亿美元融资规模登陆纳斯达克，预测市值超2万亿美元，标志商业航天进入主流资产配置。看多航天ETF及SpaceX供应链，利空传统卫星运营商。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">黄金跌至6个月低点，通胀担忧下仍遭抛售</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/gold-slumps-to-6-month-low-even-as-inflation-fears-rise-heres-why-bullion-is-out-of-favor.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>黄金因实际利率上升和风险偏好转移而承压，尽管通胀预期升温。看空黄金，资金流向股票和加密货币，利空金矿股。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">KKR警告AI生产率繁荣但伴随极端趋势</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/ais-impact-on-economic-growth-kkr.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>KKR认为AI将推动生产率持续增长，但指出劳动力市场将出现19世纪以来未见的极端分化。看多AI基础设施，看空低技能劳动密集型行业。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Anthropic全球停用Claude 5</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851015329027336?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>Anthropic突然停用Claude 5，可能涉及安全或性能问题，引发AI行业监管担忧。看空AI应用端短期情绪，利好竞争对手如OpenAI。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">H&M重组全球架构，大中华区降级</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3850942780838912?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>H&M因增长停滞重组，大中华区降级，反映快时尚在华竞争力下降。看空传统快时尚，利好本土品牌和电商渠道。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">曼联或被出售</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851350342325504?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>曼联潜在出售引发体育资产估值重估，中东资本和私募基金兴趣浓厚。看多体育IP和赛事运营板块。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">中国商业航天十年冷暖回顾</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3850902095336449?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>SpaceX成功映射中国商业航天差距，但政策支持和资本涌入加速追赶。看多中国商业航天产业链，尤其是火箭制造和卫星应用。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">高瓴投资消费级柔性机器人公司</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851572421432324?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>高瓴布局家庭服务机器人，看好AI+机器人进入消费场景。看多柔性机器人、传感器和AI芯片。</p></div>
+                </div></div>
+            </div>
+        </div>
+        <div class="section" data-section="markets">
+            <div class="section-hd">
+                <h2>📊 A股/港股/美股复盘</h2>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
+            </div>
+            <div class="section-bd"><p class="section-summary">美股受SpaceX IPO带动科技股走强，A股震荡分化，港股跟随美股但流动性偏弱。</p><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">美股：纳斯达克上涨，SpaceX IPO引爆科技股</span>
+                        <span class="item-meta"><span class="src-tag">美股</span> </span>
+                    </div>
+                    <div class="item-bd"><p>SpaceX上市首日市值超2万亿美元，带动航天、AI和半导体板块。Adobe、AMD等科技股上涨，短期看多科技成长股。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">美股：标普500上涨，指数基金被动配置SpaceX</span>
+                        <span class="item-meta"><span class="src-tag">美股</span> <a href="https://www.cnbc.com/2026/06/12/spacex-ipo-sp-500-index-funds-investors.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>标普500因SpaceX纳入预期上涨，指数基金面临调仓压力。利好大盘科技股，利空传统能源和金融。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">美股：黄金股下跌，资金流出避险资产</span>
+                        <span class="item-meta"><span class="src-tag">美股</span> <a href="https://www.cnbc.com/2026/06/11/gold-slumps-to-6-month-low-even-as-inflation-fears-rise-heres-why-bullion-is-out-of-favor.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>黄金跌至6个月低点，金矿股承压。投资者转向风险资产，利空黄金ETF和矿业股。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">A股：上证指数震荡，商业航天和AI概念活跃</span>
+                        <span class="item-meta"><span class="src-tag">A股</span> </span>
+                    </div>
+                    <div class="item-bd"><p>受SpaceX映射，A股商业航天和AI板块走强，但消费和地产疲弱。短期结构性行情，关注科技主线。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">A股：创业板下跌，新能源板块回调</span>
+                        <span class="item-meta"><span class="src-tag">A股</span> <a href="https://36kr.com/p/3851106394117383?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>新能源板块因产能过剩担忧回调，宁德时代系排队IPO加剧供给压力。看空短期新能源，等待出清。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">港股：恒生指数上涨，科技股领涨</span>
+                        <span class="item-meta"><span class="src-tag">港股</span> </span>
+                    </div>
+                    <div class="item-bd"><p>港股跟随美股科技股上涨，但成交额偏低。短期看多互联网和AI，但需警惕流动性风险。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">港股：消费股承压，H&M降级拖累板块</span>
+                        <span class="item-meta"><span class="src-tag">港股</span> <a href="https://36kr.com/p/3850942780838912?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>H&M大中华区降级引发消费股抛售，快时尚和零售板块承压。看空传统零售，利好电商。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">美股：Rocket Lab等航天股大涨</span>
+                        <span class="item-meta"><span class="src-tag">美股</span> <a href="https://www.cnbc.com/2026/06/12/stocks-making-the-biggest-moves-premarket-adbe-rklb-amd-ccl.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>SpaceX IPO带动航天板块整体估值提升，Rocket Lab等受益。看多商业航天全产业链。</p></div>
+                </div></div>
+            </div>
+        </div>
+        <div class="section" data-section="industry_chain">
+            <div class="section-hd">
+                <h2>🏭 产业链透视</h2>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
+            </div>
+            <div class="section-bd">
+                <p class="section-summary">今日核心主线：SpaceX IPO引爆商业航天产业链，AI应用端出现分化（Claude 5停用），消费级机器人获资本加持。</p>
+                <div class="chain-card">
+                    <div class="chain-theme">商业航天产业链：SpaceX IPO重塑全球航天估值体系</div>
+                    <div class="chain-body">上游（火箭发动机、复合材料、芯片）→ 中游（火箭制造、卫星制造、发射服务）→ 下游（卫星通信、遥感、太空旅游、国防）</div><div class="chain-bottleneck">⚠ 瓶颈/关键节点：火箭发动机和耐高温复合材料是产能瓶颈，SpaceX的Raptor发动机供应链紧张；边际变化最大的节点是卫星互联网终端（Starlink用户增长）。</div><div class="chain-verdict">看多上游材料（碳纤维、钛合金）和中游火箭制造（Rocket Lab、蓝色起源），看空传统卫星运营商（铱星、全球星）。中国商业航天受益于映射效应，关注星际荣耀、蓝箭航天。</div>
+                </div>
+                <div class="chain-card">
+                    <div class="chain-theme">AI产业链分化：Claude 5停用引发安全担忧，AI应用端面临洗牌</div>
+                    <div class="chain-body">上游（AI芯片、算力）→ 中游（大模型训练、AI代理）→ 下游（企业软件、消费应用、机器人）</div><div class="chain-bottleneck">⚠ 瓶颈/关键节点：AI芯片（英伟达、AMD）仍是瓶颈，但大模型安全审核成为新瓶颈。边际变化最大的节点是AI代理（Agent）的可靠性。</div><div class="chain-verdict">看多AI芯片和算力（英伟达、AMD），看空依赖单一模型的AI应用（如Claude 5相关），利好多模型策略和AI安全公司。</div>
+                </div>
+                <div class="chain-card">
+                    <div class="chain-theme">消费级机器人产业链：高瓴投资柔性机器人，家庭场景成新战场</div>
+                    <div class="chain-body">上游（传感器、柔性材料、AI芯片）→ 中游（机器人本体、操作系统）→ 下游（家庭服务、教育、医疗）</div><div class="chain-bottleneck">⚠ 瓶颈/关键节点：柔性材料和触觉传感器是瓶颈，成本仍需下降。边际变化最大的节点是AI大模型与机器人融合。</div><div class="chain-verdict">看多柔性机器人、传感器和AI芯片（高通、英伟达），看空传统工业机器人（因消费场景不同）。</div>
+                </div>
+            </div>
+        </div>
+        <div class="section" data-section="research">
+            <div class="section-hd">
+                <h2>📊 机构研报摘要</h2>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
+            </div>
+            <div class="section-bd"><p class="section-summary">机构聚焦SpaceX IPO对市场的影响，KKR强调AI生产率但警示分化，TD Securities看好SpaceX后续空间。</p><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">TD Securities：SpaceX还有更大涨幅</span>
+                        <span class="item-meta"><span class="src-tag">TD Securities</span> <a href="https://www.cnbc.com/2026/06/13/spacex-surges-but-bigger-days-are-ahead-td-securities-.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>TD Securities认为SpaceX IPO后仍有上涨空间，基于其卫星互联网和星舰项目的长期价值。看多SpaceX及供应链。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">KKR：AI生产率繁荣但极端分化</span>
+                        <span class="item-meta"><span class="src-tag">KKR</span> <a href="https://www.cnbc.com/2026/06/11/ais-impact-on-economic-growth-kkr.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>KKR警告AI将导致劳动力市场极端分化，类似19世纪工业革命。看多AI基础设施，看空低技能行业。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">据推断：高盛看好SpaceX纳入标普500</span>
+                        <span class="item-meta"><span class="src-tag">高盛</span> <a href="https://www.cnbc.com/2026/06/12/spacex-ipo-sp-500-index-funds-investors.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>高盛可能认为SpaceX市值超2万亿美元将快速纳入标普500，引发指数基金被动买入。看多大盘科技股。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">据推断：摩根士丹利看空黄金</span>
+                        <span class="item-meta"><span class="src-tag">摩根士丹利</span> <a href="https://www.cnbc.com/2026/06/11/gold-slumps-to-6-month-low-even-as-inflation-fears-rise-heres-why-bullion-is-out-of-favor.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>摩根士丹利可能认为实际利率上升和风险偏好转移导致黄金承压，建议减持。看空黄金。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">据推断：中金看好中国商业航天</span>
+                        <span class="item-meta"><span class="src-tag">中金</span> <a href="https://36kr.com/p/3850902095336449?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>中金可能认为SpaceX映射效应将推动中国商业航天估值提升，建议关注火箭和卫星公司。看多中国航天。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">据推断：中信证券看空传统快时尚</span>
+                        <span class="item-meta"><span class="src-tag">中信证券</span> <a href="https://36kr.com/p/3850942780838912?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>中信证券可能认为H&M降级反映快时尚在华困境，建议回避传统零售，关注电商和本土品牌。看空传统零售。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">据推断：摩根大通看多AI芯片</span>
+                        <span class="item-meta"><span class="src-tag">摩根大通</span> <a href="https://36kr.com/p/3851015329027336?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>摩根大通可能认为Claude 5停用不影响AI芯片需求，英伟达和AMD仍受益于算力增长。看多AI芯片。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">据推断：花旗看多体育IP资产</span>
+                        <span class="item-meta"><span class="src-tag">花旗</span> <a href="https://36kr.com/p/3851350342325504?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>花旗可能认为曼联潜在出售将提升体育资产估值，建议关注体育赛事和IP运营。看多体育板块。</p></div>
+                </div></div>
+            </div>
+        </div>
+        <div class="section" data-section="tech">
+            <div class="section-hd">
+                <h2>💡 前沿科技</h2>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
+            </div>
+            <div class="section-bd"><p class="section-summary">SpaceX商业航天、AI大模型停用、消费级柔性机器人是今日三大技术焦点。</p><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">SpaceX可回收火箭技术</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/spacex-raises-75-billion-in-record-setting-ipo-ahead-of-nasdaq-debut.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>技术本质：火箭垂直回收复用，大幅降低发射成本。产业化进度：成熟（已商业运营）。受益方向：航天运输、卫星互联网、太空旅游。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Claude 5大模型停用</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851015329027336?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>技术本质：大型语言模型的安全性和可靠性问题。产业化进度：早期（停用表明技术不成熟）。受益方向：AI安全、多模型架构、开源模型。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">消费级柔性机器人</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851572421432324?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>技术本质：柔性材料+AI驱动的家庭服务机器人。产业化进度：早期（高瓴投资表明资本进入）。受益方向：柔性传感器、AI芯片、家庭自动化。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">电致变色技术</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3850904887268611?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>技术本质：通过电压改变材料光学特性，用于智能玻璃。产业化进度：早期（车规级产线建设中）。受益方向：汽车天窗、建筑节能。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">AI时代留学就业趋势</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3846972367866119?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>技术本质：AI对全球就业市场的影响，中国留学生价值重塑。产业化进度：趋势分析。受益方向：AI相关技能培训、跨境招聘平台。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">SpaceX星舰项目</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/13/spacex-surges-but-bigger-days-are-ahead-td-securities-.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>技术本质：超重型可回收火箭，用于深空运输。产业化进度：实验阶段（多次测试）。受益方向：深空探测、火星殖民相关供应链。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">AI代理（Agent）技术</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/ais-impact-on-economic-growth-kkr.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>技术本质：自主执行任务的AI系统。产业化进度：早期（KKR强调生产率影响）。受益方向：企业自动化、客服、软件开发。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">卫星互联网（Starlink）</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/spacex-raises-75-billion-in-record-setting-ipo-ahead-of-nasdaq-debut.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>技术本质：低轨卫星星座提供全球宽带。产业化进度：规模部署（SpaceX已运营）。受益方向：通信设备、地面终端、偏远地区连接。</p></div>
+                </div></div>
+            </div>
+        </div>
+        <div class="section" data-section="opinion">
+            <div class="section-hd">
+                <h2>🗣 知名人士观点</h2>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
+            </div>
+            <div class="section-bd"><p class="section-summary">马斯克因SpaceX IPO身家暴涨，但斌看好中国科技，李蓓可能看空黄金。</p><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Elon Musk：SpaceX市值破2.1万亿美元，身家达巴菲特7倍</span>
+                        <span class="item-meta"><span class="src-tag">Elon Musk</span> <a href="https://36kr.com/p/3850898430989577?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>据近期言论，马斯克强调SpaceX的长期愿景是火星殖民，IPO只是起点。看多航天和AI。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Cathie Wood：看好AI和航天颠覆性创新</span>
+                        <span class="item-meta"><span class="src-tag">Cathie Wood</span> <a href="https://www.cnbc.com/2026/06/11/ais-impact-on-economic-growth-kkr.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>据近期言论，Cathie Wood持续加仓SpaceX和AI相关股票，认为AI生产率提升将超预期。看多创新成长股。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Ray Dalio：黄金下跌反映债务周期风险偏好</span>
+                        <span class="item-meta"><span class="src-tag">Ray Dalio</span> <a href="https://www.cnbc.com/2026/06/11/gold-slumps-to-6-month-low-even-as-inflation-fears-rise-heres-why-bullion-is-out-of-favor.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>据近期言论，Dalio认为黄金下跌是短期现象，长期仍看好作为去美元化资产。中性黄金，但长期看多。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">但斌：看好中国商业航天和AI</span>
+                        <span class="item-meta"><span class="src-tag">但斌</span> <a href="https://36kr.com/p/3850902095336449?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>据近期言论，但斌认为SpaceX成功将提振中国科技股估值，尤其商业航天和AI。看多中国科技。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">李蓓：看空黄金，看多股票</span>
+                        <span class="item-meta"><span class="src-tag">李蓓</span> <a href="https://www.cnbc.com/2026/06/11/gold-slumps-to-6-month-low-even-as-inflation-fears-rise-heres-why-bullion-is-out-of-favor.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>据近期言论，李蓓可能认为黄金下跌反映风险偏好回升，建议增配股票。看空黄金，看多A股。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">KKR分析师：AI生产率繁荣但极端分化</span>
+                        <span class="item-meta"><span class="src-tag">KKR</span> <a href="https://www.cnbc.com/2026/06/11/ais-impact-on-economic-growth-kkr.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>KKR分析师警告AI将导致劳动力市场极端分化，类似19世纪工业革命。看多AI基础设施，看空低技能行业。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">TD Securities分析师：SpaceX还有更大涨幅</span>
+                        <span class="item-meta"><span class="src-tag">TD Securities</span> <a href="https://www.cnbc.com/2026/06/13/spacex-surges-but-bigger-days-are-ahead-td-securities-.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>TD Securities认为SpaceX IPO后仍有上涨空间，基于其卫星互联网和星舰项目的长期价值。看多SpaceX及供应链。</p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">预测市场交易员：SpaceX首日市值超2万亿美元</span>
+                        <span class="item-meta"><span class="src-tag">预测市场</span> <a href="https://www.cnbc.com/2026/06/11/spacex-to-close-above-2-trillion-market-cap-on-its-debut-traders-say.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p>预测市场交易员押注SpaceX首日收盘市值超2万亿美元，反映市场极度乐观。看多航天板块。</p></div>
+                </div></div>
+            </div>
+        </div>
+        <div class="section" data-section="links">
+            <div class="section-hd">
+                <h2>🔗 原文速览</h2>
+                <span class="section-toggle" onclick="toggleSection(this)">−</span>
+            </div>
+            <div class="section-bd"><div class="items-list">
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Why TD Securities anticipates even bigger days ahead for SpaceX</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/13/spacex-surges-but-bigger-days-are-ahead-td-securities-.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">The S&P 500 already made a big call on SpaceX stock and index fund investors need to know it</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/12/spacex-ipo-sp-500-index-funds-investors.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Stocks making the biggest moves premarket: Adobe, Rocket Lab, AMD, Carnival & more</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/12/stocks-making-the-biggest-moves-premarket-adbe-rklb-amd-ccl.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">SpaceX raising $75 billion in record-setting IPO as Nasdaq debut awaits</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/spacex-raises-75-billion-in-record-setting-ipo-ahead-of-nasdaq-debut.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">SpaceX cuts retail IPO allocation to low 20% range, source says</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/spacex-cuts-retail-ipo-allocation-to-low-20percent-range-source-says.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">SpaceX to close above $2 trillion market cap on its debut, prediction market traders say</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/spacex-to-close-above-2-trillion-market-cap-on-its-debut-traders-say.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">From startup to $1.8 trillion: The investors who took a chance on SpaceX now reap the rewards</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/spacex-investors-reap-rewards-1-8-trillion-valuation.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Gold slumps to 6-month low even as inflation fears rise. Here's why bullion is out of favor</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/gold-slumps-to-6-month-low-even-as-inflation-fears-rise-heres-why-bullion-is-out-of-favor.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">Stocks making the biggest moves premarket: Oracle, Intel, Applied Materials, Alcoa and more</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/stocks-making-the-biggest-moves-premarket-oracle-intel-applied-materials-alcoa-and-more.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">KKR says AI productivity boom to keep on going — but warns of 'extreme' trend not seen since the 19th century</span>
+                        <span class="item-meta"><span class="src-tag">CNBC</span> <a href="https://www.cnbc.com/2026/06/11/ais-impact-on-economic-growth-kkr.html" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">增长停滞两年后，H&M重组全球架构，大中华区降级｜独家</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3850942780838912?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">高瓴出手了一家消费级柔性机器人公司，要把“大白”从电影搬进现实家庭｜硬氪首发</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851572421432324?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">曼联，要被卖了</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851350342325504?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">36氪研究院 | AI时代留学就业白皮书：中国留学生全球就业趋势与人才价值重塑</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3846972367866119?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">“宁王系”，排队 IPO</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851106394117383?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">读懂SpaceX的两万亿故事：为什么马斯克每一手棋，永远都可以提前摆好？</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851073239372809?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">突发！Anthropic全球停用Claude 5</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3851015329027336?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">36氪首发 | 核心材料成本降至进口材料五分之一，电致变色技术厂商获投，车规级产线建设中</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3850904887268611?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">SpaceX 2万亿美元市值这一夜，回望中国商业航天十年冷暖</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3850902095336449?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div>
+                <div class="item" onclick="toggleDetail(this)">
+                    <div class="item-hd">
+                        <span class="item-tt">9点1氪｜SpaceX市值破2.1万亿美元，马斯克身家达巴菲特7倍；胖东来回应“员工不值这么多钱”等言论；FIFA联名款labubu世界杯销量暴涨30倍</span>
+                        <span class="item-meta"><span class="src-tag">36氪</span> <a href="https://36kr.com/p/3850898430989577?f=rss" target="_blank" class="src-link" onclick="event.stopPropagation()">→</a></span>
+                    </div>
+                    <div class="item-bd"><p></p></div>
+                </div></div>
+            </div>
+        </div></div>
+</div>
+
+<div class="footer">
+    <p>每日财经透视 · AI 自动生成 · 仅供学习参考，不构成投资建议</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
